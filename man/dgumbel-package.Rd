@@ -12,7 +12,7 @@
 \usage{
 dgumbel(x, location=0, scale=1, log = FALSE, grad=FALSE) 
 pgumbel(q, location=0, scale=1, lower.tail = TRUE, log.p = FALSE, grad=FALSE) 
-qgumbel(p, location=0, scale=1, lower.tail = TRUE, log.p = FALSE, grad=FALSE)
+qgumbel(p, location=0, scale=1, lower.tail = TRUE, grad=FALSE)
 rgumbel(n, location=0, scale=1)
 }
 \arguments{

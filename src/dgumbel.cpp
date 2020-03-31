@@ -112,3 +112,51 @@ Rcpp::NumericVector dpgumbel(double q, double location, double scale, bool lower
     return grad;
     
 }
+
+
+// QUANTILE FUNCTION
+
+template<class T>
+T qgumbel(double p, T location, T scale, bool lower_tail){
+    
+    if(!lower_tail){
+        p = 1.0-p;
+    }
+    location - scale*log(-log(p));
+    T res = location - scale*log(-log(p));
+    return res;
+}
+
+// [[Rcpp::export(.qgumbel)]]
+double qgumbel(double p, double location, double scale, bool lower_tail){
+    
+    double res = qgumbel<double>(p, location, scale, lower_tail);
+    return res;
+    
+}
+
+// [[Rcpp::export(.dqgumbel)]]
+Rcpp::NumericVector dqgumbel(double p, double location, double scale, bool lower_tail){
+    
+    adept::Stack stack;
+    
+    adtype location_ad = location;
+    adtype scale_ad = scale;
+    
+    stack.new_recording();
+    
+    adtype res0 = qgumbel<adtype>(p, location_ad, scale_ad, lower_tail);
+    adtype res = res0/1.0;
+    
+    res.set_gradient(1.0);
+    stack.compute_adjoint();
+    
+    // Fill result
+    Rcpp::NumericVector grad = Rcpp::NumericVector::create(
+        location_ad.get_gradient(), 
+        scale_ad.get_gradient()
+    );
+    
+    return grad;
+    
+}

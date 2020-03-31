@@ -17,3 +17,11 @@
     .Call('_dgumbel_dpgumbel', PACKAGE = 'dgumbel', q, location, scale, lower_tail, log_p)
 }
 
+.qgumbel <- function(p, location, scale, lower_tail) {
+    .Call('_dgumbel_qgumbel', PACKAGE = 'dgumbel', p, location, scale, lower_tail)
+}
+
+.dqgumbel <- function(p, location, scale, lower_tail) {
+    .Call('_dgumbel_dqgumbel', PACKAGE = 'dgumbel', p, location, scale, lower_tail)
+}
+
