@@ -6,21 +6,38 @@
 
 using namespace Rcpp;
 
-// adept_eigen_test
-Rcpp::List adept_eigen_test(double x, double y);
-RcppExport SEXP _dgumbel_adept_eigen_test(SEXP xSEXP, SEXP ySEXP) {
+// dgumbel
+double dgumbel(double x, double location, double scale, bool log_dens);
+RcppExport SEXP _dgumbel_dgumbel(SEXP xSEXP, SEXP locationSEXP, SEXP scaleSEXP, SEXP log_densSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< double >::type x(xSEXP);
-    Rcpp::traits::input_parameter< double >::type y(ySEXP);
-    rcpp_result_gen = Rcpp::wrap(adept_eigen_test(x, y));
+    Rcpp::traits::input_parameter< double >::type location(locationSEXP);
+    Rcpp::traits::input_parameter< double >::type scale(scaleSEXP);
+    Rcpp::traits::input_parameter< bool >::type log_dens(log_densSEXP);
+    rcpp_result_gen = Rcpp::wrap(dgumbel(x, location, scale, log_dens));
+    return rcpp_result_gen;
+END_RCPP
+}
+// ddgumbel
+Rcpp::NumericVector ddgumbel(double x, double location, double scale, bool log_dens);
+RcppExport SEXP _dgumbel_ddgumbel(SEXP xSEXP, SEXP locationSEXP, SEXP scaleSEXP, SEXP log_densSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< double >::type x(xSEXP);
+    Rcpp::traits::input_parameter< double >::type location(locationSEXP);
+    Rcpp::traits::input_parameter< double >::type scale(scaleSEXP);
+    Rcpp::traits::input_parameter< bool >::type log_dens(log_densSEXP);
+    rcpp_result_gen = Rcpp::wrap(ddgumbel(x, location, scale, log_dens));
     return rcpp_result_gen;
 END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
-    {"_dgumbel_adept_eigen_test", (DL_FUNC) &_dgumbel_adept_eigen_test, 2},
+    {"_dgumbel_dgumbel", (DL_FUNC) &_dgumbel_dgumbel, 4},
+    {"_dgumbel_ddgumbel", (DL_FUNC) &_dgumbel_ddgumbel, 4},
     {NULL, NULL, 0}
 };
 

@@ -5,30 +5,52 @@
 //#include "../inst/include/dgumbel.hpp"
 #include "dgumbel.hpp"
 
-// [[Rcpp::export]]
-Rcpp::List adept_eigen_test(double x, double y)
-{
+
+template<class T>
+T dgumbel(double x, T location, T scale, bool log_dens){
+    
+    T z = (x-location)/scale;
+    T log_fx = -(z+exp(-z)) - log(scale);
+    T res;
+    if(log_dens){
+        res = log_fx;
+    }else{
+        res = exp(log_fx);
+    }
+    return res;
+    
+}
+
+// [[Rcpp::export(.dgumbel)]]
+double dgumbel(double x, double location, double scale, bool log_dens){
+    
+    double res = dgumbel<double>(x, location, scale, log_dens);
+    return res;
+    
+}
+
+// [[Rcpp::export(.ddgumbel)]]
+Rcpp::NumericVector ddgumbel(double x, double location, double scale, bool log_dens){
+    
     adept::Stack stack;
     
-    Tvec<adtype> ad_par(2);
-    ad_par << x, y;
+    adtype location_ad = location;
+    adtype scale_ad = scale;
     
     stack.new_recording();
     
-    adtype res0 = 0.5 * (ad_par.array()*ad_par.array()).sum(); // gradient: x, y
+    adtype res0 = dgumbel<adtype>(x, location_ad, scale_ad, log_dens);
     adtype res = res0/1.0;
     
     res.set_gradient(1.0);
     stack.compute_adjoint();
     
     // Fill result
-    Tvec<double> grad(2);
-    grad.coeffRef(0) = ad_par.coeff(0).get_gradient();
-    grad.coeffRef(1) = ad_par.coeff(1).get_gradient();
+    Rcpp::NumericVector grad = Rcpp::NumericVector::create(
+        location_ad.get_gradient(), 
+        scale_ad.get_gradient()
+    );
     
-    //Rcpp::Rcout << "gradient: " << grad << std::endl;
-    return Rcpp::List::create(
-        Rcpp::Named("fun")  = res.value(),
-        Rcpp::Named("grad")  = grad);
+    return grad;
     
 }

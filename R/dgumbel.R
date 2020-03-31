@@ -3,6 +3,17 @@
 #
 #' @rdname pgumbel
 #' @export
-dgumbel <- function(q, location = 0, scale = 1, lower.tail = TRUE, log = FALSE, grad=FALSE){
+dgumbel <- function(x, location = 0, scale = 1, log = FALSE, grad=FALSE){
+    
+    # should check input
+    
+    # if ok
+    if(!grad){
+        res <- .dgumbel(x, location, scale, log)
+    }else{
+        res <- .ddgumbel(x, location, scale, log)
+    }
+    
+    return(res)
     
 }
