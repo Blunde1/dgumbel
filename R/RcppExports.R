@@ -9,3 +9,11 @@
     .Call('_dgumbel_ddgumbel', PACKAGE = 'dgumbel', x, location, scale, log_dens)
 }
 
+.pgumbel <- function(q, location, scale, lower_tail, log_p) {
+    .Call('_dgumbel_pgumbel', PACKAGE = 'dgumbel', q, location, scale, lower_tail, log_p)
+}
+
+.dpgumbel <- function(q, location, scale, lower_tail, log_p) {
+    .Call('_dgumbel_dpgumbel', PACKAGE = 'dgumbel', q, location, scale, lower_tail, log_p)
+}
+
