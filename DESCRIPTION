@@ -5,12 +5,22 @@ Version: 1.0.0
 Date: 2020-03-31
 Author: Berent Ånund Strømnes Lunde
 Maintainer: Berent Ånund Strømnes Lunde <lundeberent@gmail.com>
-Description: With this tool, a user should be able to quickly model extreme
-    events via the Gumbel distribution. The package makes available the
-    density function, the distribution function the quantile function and a 
-    random generating function. In addition, it supports gradient functions 
-    for the above mentioned functions (excluding random generating function).
+Description: Gumbel distribution functions (De Haan L. (2007) 
+    <doi:10.1007/0-387-34471-3>) implemented with the techniques of automatic 
+    differentiation (Griewank A. (2008) <doi:10.1137/1.9780898717761>). 
+    With this tool, a user should be able to quickly model extreme
+    events for which the Gumbel distribution is the domain of attraction. 
+    The package makes available the density function, the distribution 
+    function the quantile function and a random generating function. In 
+    addition, it supports gradient functions. The package combines 'Adept' 
+    (C++ templated automatic differentiation) (Hogan R. (2017) 
+    <doi:10.5281/zenodo.1004730>) and 'Eigen' (templated matrix-vector 
+    library) for fast computations of both objective functions and exact 
+    gradients. It relies on 'RcppEigen' for easy access to 'Eigen' and bindings 
+    to R.
 License: GPL (>= 2) | file LICENSE
+URL: https://github.com/blunde1/dgumbel
+BugReports: https://github.com/blunde1/dgumbel/issues
 Encoding: UTF-8
-Imports: Rcpp (>= 1.0.2), RcppEigen (>= 0.3.3.5.0)
+Imports: Rcpp (>= 1.0.2)
 LinkingTo: Rcpp, RcppEigen
