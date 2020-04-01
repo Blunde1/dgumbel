@@ -57,7 +57,7 @@ n <- 1000
 x <- rgumbel(n, loc, scale)
 
 ## The density
-hist(x, freq=F)
+hist(x, freq=FALSE)
 xs <- sort(x)
 fx <- dgumbel(xs, loc, scale)
 points(xs,fx, type="l", col=2, lwd=2)
@@ -73,13 +73,14 @@ q <- qgumbel(0.6, loc, scale)
 polygon(c(xs[xs <= q], q), c(Fx[xs<=q], 0), col=3)
 
 ## Negative log likelihood: Objective and gradient
-nll <- function(par, data) -sum(dgumbel(data, par[1], par[2], log=T))
-dnll <- function(par, data) -rowSums(dgumbel(data, par[1], par[2], log=T, grad=T))
+nll <- function(par, data) -sum(dgumbel(data, par[1], par[2], log=TRUE))
+dnll <- function(par, data) -rowSums(dgumbel(data, par[1], par[2], log=TRUE, grad=TRUE))
 
 ## Parameter estimation
 par_start <- c(3,1)
 opt <- nlminb(par_start, objective=nll, gradient=dnll, data=x, control = list(trace=5))
 opt$convergence
 opt$par
+
 }
 \keyword{distribution}
