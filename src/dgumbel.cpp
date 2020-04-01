@@ -139,7 +139,6 @@ T qgumbel(double p, T location, T scale, bool lower_tail){
     if(!lower_tail){
         p = 1.0-p;
     }
-    location - scale*log(-log(p));
     T res = location - scale*log(-log(p));
     return res;
 }
