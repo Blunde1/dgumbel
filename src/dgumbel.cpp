@@ -23,34 +23,42 @@ T dgumbel(double x, T location, T scale, bool log_dens){
 }
 
 // [[Rcpp::export(.dgumbel)]]
-double dgumbel(double x, double location, double scale, bool log_dens){
+Rcpp::NumericVector dgumbel(Rcpp::NumericVector x, double location, double scale, bool log_dens){
     
-    double res = dgumbel<double>(x, location, scale, log_dens);
+    int n = x.size();
+    Rcpp::NumericVector res(n);
+    
+    for(int i=0; i<n; i++){
+        res[i] = dgumbel<double>(x[i], location, scale, log_dens);
+    }
+    
     return res;
     
 }
 
 // [[Rcpp::export(.ddgumbel)]]
-Rcpp::NumericVector ddgumbel(double x, double location, double scale, bool log_dens){
+Rcpp::NumericVector ddgumbel(Rcpp::NumericVector x, double location, double scale, bool log_dens){
     
-    adept::Stack stack;
+    int n = x.size();
+    Rcpp::NumericMatrix grad(2,n);
     
-    adtype location_ad = location;
-    adtype scale_ad = scale;
-    
-    stack.new_recording();
-    
-    adtype res0 = dgumbel<adtype>(x, location_ad, scale_ad, log_dens);
-    adtype res = res0/1.0;
-    
-    res.set_gradient(1.0);
-    stack.compute_adjoint();
-    
-    // Fill result
-    Rcpp::NumericVector grad = Rcpp::NumericVector::create(
-        location_ad.get_gradient(), 
-        scale_ad.get_gradient()
-    );
+    for(int i=0; i<n; i++){
+        adept::Stack stack;
+        
+        adtype location_ad = location;
+        adtype scale_ad = scale;
+        
+        stack.new_recording();
+        
+        adtype res0 = dgumbel<adtype>(x[i], location_ad, scale_ad, log_dens);
+        adtype res = res0/1.0;
+        
+        res.set_gradient(1.0);
+        stack.compute_adjoint();
+        
+        grad(0,i) = location_ad.get_gradient();
+        grad(1,i) = scale_ad.get_gradient();
+    }
     
     return grad;
     
@@ -81,33 +89,42 @@ T pgumbel(double q, T location, T scale, bool lower_tail, bool log_p){
 }
 
 // [[Rcpp::export(.pgumbel)]]
-double pgumbel(double q, double location, double scale, bool lower_tail, bool log_p){
+Rcpp::NumericVector pgumbel(Rcpp::NumericVector q, double location, double scale, bool lower_tail, bool log_p){
     
-    double res = pgumbel<double>(q, location, scale, lower_tail, log_p);
+    int n = q.size();
+    Rcpp::NumericVector res(n);
+    
+    for(int i=0; i<n; i++){
+        res[i] = pgumbel<double>(q[i], location, scale, lower_tail, log_p);
+    }
+    
     return res;
+    
 }
 
 // [[Rcpp::export(.dpgumbel)]]
-Rcpp::NumericVector dpgumbel(double q, double location, double scale, bool lower_tail, bool log_p){
+Rcpp::NumericMatrix dpgumbel(Rcpp::NumericVector q, double location, double scale, bool lower_tail, bool log_p){
     
-    adept::Stack stack;
+    int n = q.size();
+    Rcpp::NumericMatrix grad(2,n);
     
-    adtype location_ad = location;
-    adtype scale_ad = scale;
-    
-    stack.new_recording();
-    
-    adtype res0 = pgumbel<adtype>(q, location_ad, scale_ad, lower_tail, log_p);
-    adtype res = res0/1.0;
-    
-    res.set_gradient(1.0);
-    stack.compute_adjoint();
-    
-    // Fill result
-    Rcpp::NumericVector grad = Rcpp::NumericVector::create(
-        location_ad.get_gradient(), 
-        scale_ad.get_gradient()
-    );
+    for(int i=0; i<n; i++){
+        adept::Stack stack;
+        
+        adtype location_ad = location;
+        adtype scale_ad = scale;
+        
+        stack.new_recording();
+        
+        adtype res0 = pgumbel<adtype>(q[i], location_ad, scale_ad, lower_tail, log_p);
+        adtype res = res0/1.0;
+        
+        res.set_gradient(1.0);
+        stack.compute_adjoint();
+        
+        grad(0,i) = location_ad.get_gradient();
+        grad(1,i) = scale_ad.get_gradient();
+    }
     
     return grad;
     
@@ -128,34 +145,42 @@ T qgumbel(double p, T location, T scale, bool lower_tail){
 }
 
 // [[Rcpp::export(.qgumbel)]]
-double qgumbel(double p, double location, double scale, bool lower_tail){
+Rcpp::NumericVector qgumbel(Rcpp::NumericVector p, double location, double scale, bool lower_tail){
     
-    double res = qgumbel<double>(p, location, scale, lower_tail);
+    int n = p.size();
+    Rcpp::NumericVector res(n);
+    
+    for(int i=0; i<n; i++){
+        res[i] = qgumbel<double>(p[i], location, scale, lower_tail);
+    }
+    
     return res;
     
 }
 
 // [[Rcpp::export(.dqgumbel)]]
-Rcpp::NumericVector dqgumbel(double p, double location, double scale, bool lower_tail){
+Rcpp::NumericMatrix dqgumbel(Rcpp::NumericVector p, double location, double scale, bool lower_tail){
     
-    adept::Stack stack;
+    int n = p.size();
+    Rcpp::NumericMatrix grad(2,n);
     
-    adtype location_ad = location;
-    adtype scale_ad = scale;
-    
-    stack.new_recording();
-    
-    adtype res0 = qgumbel<adtype>(p, location_ad, scale_ad, lower_tail);
-    adtype res = res0/1.0;
-    
-    res.set_gradient(1.0);
-    stack.compute_adjoint();
-    
-    // Fill result
-    Rcpp::NumericVector grad = Rcpp::NumericVector::create(
-        location_ad.get_gradient(), 
-        scale_ad.get_gradient()
-    );
+    for(int i=0; i<n; i++){
+        adept::Stack stack;
+        
+        adtype location_ad = location;
+        adtype scale_ad = scale;
+        
+        stack.new_recording();
+        
+        adtype res0 = qgumbel<adtype>(p[i], location_ad, scale_ad, lower_tail);
+        adtype res = res0/1.0;
+        
+        res.set_gradient(1.0);
+        stack.compute_adjoint();
+        
+        grad(0,i) = location_ad.get_gradient();
+        grad(1,i) = scale_ad.get_gradient();
+    }
     
     return grad;
     

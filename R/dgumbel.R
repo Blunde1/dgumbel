@@ -9,9 +9,9 @@ dgumbel <- function(x, location = 0, scale = 1, log = FALSE, grad=FALSE){
     
     # if ok
     if(!grad){
-        res <- .dgumbel(x, location, scale, log)
+        res <- .dgumbel(x, location=location, scale=scale, log_dens=log)
     }else{
-        res <- .ddgumbel(x, location, scale, log)
+        res <- .ddgumbel(x, location=location, scale=scale, log_dens=log)
     }
     
     return(res)

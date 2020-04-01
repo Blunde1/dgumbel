@@ -9,6 +9,8 @@ rgumbel <- function(n, location = 0, scale = 1){
     u <- runif(n, 0, 1)
     
     # Transform to Gumbel RV
-    x <- sapply(u, .qgumbel, location=location, scale=scale, lower_tail=T)
+    x <- .qgumbel(u, location=location, scale=scale, lower_tail=T)
     
+    return(x)
+
 }

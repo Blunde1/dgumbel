@@ -7,12 +7,12 @@
 using namespace Rcpp;
 
 // dgumbel
-double dgumbel(double x, double location, double scale, bool log_dens);
+Rcpp::NumericVector dgumbel(Rcpp::NumericVector x, double location, double scale, bool log_dens);
 RcppExport SEXP _dgumbel_dgumbel(SEXP xSEXP, SEXP locationSEXP, SEXP scaleSEXP, SEXP log_densSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< double >::type x(xSEXP);
+    Rcpp::traits::input_parameter< Rcpp::NumericVector >::type x(xSEXP);
     Rcpp::traits::input_parameter< double >::type location(locationSEXP);
     Rcpp::traits::input_parameter< double >::type scale(scaleSEXP);
     Rcpp::traits::input_parameter< bool >::type log_dens(log_densSEXP);
@@ -21,12 +21,12 @@ BEGIN_RCPP
 END_RCPP
 }
 // ddgumbel
-Rcpp::NumericVector ddgumbel(double x, double location, double scale, bool log_dens);
+Rcpp::NumericVector ddgumbel(Rcpp::NumericVector x, double location, double scale, bool log_dens);
 RcppExport SEXP _dgumbel_ddgumbel(SEXP xSEXP, SEXP locationSEXP, SEXP scaleSEXP, SEXP log_densSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< double >::type x(xSEXP);
+    Rcpp::traits::input_parameter< Rcpp::NumericVector >::type x(xSEXP);
     Rcpp::traits::input_parameter< double >::type location(locationSEXP);
     Rcpp::traits::input_parameter< double >::type scale(scaleSEXP);
     Rcpp::traits::input_parameter< bool >::type log_dens(log_densSEXP);
@@ -35,12 +35,12 @@ BEGIN_RCPP
 END_RCPP
 }
 // pgumbel
-double pgumbel(double q, double location, double scale, bool lower_tail, bool log_p);
+Rcpp::NumericVector pgumbel(Rcpp::NumericVector q, double location, double scale, bool lower_tail, bool log_p);
 RcppExport SEXP _dgumbel_pgumbel(SEXP qSEXP, SEXP locationSEXP, SEXP scaleSEXP, SEXP lower_tailSEXP, SEXP log_pSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< double >::type q(qSEXP);
+    Rcpp::traits::input_parameter< Rcpp::NumericVector >::type q(qSEXP);
     Rcpp::traits::input_parameter< double >::type location(locationSEXP);
     Rcpp::traits::input_parameter< double >::type scale(scaleSEXP);
     Rcpp::traits::input_parameter< bool >::type lower_tail(lower_tailSEXP);
@@ -50,12 +50,12 @@ BEGIN_RCPP
 END_RCPP
 }
 // dpgumbel
-Rcpp::NumericVector dpgumbel(double q, double location, double scale, bool lower_tail, bool log_p);
+Rcpp::NumericMatrix dpgumbel(Rcpp::NumericVector q, double location, double scale, bool lower_tail, bool log_p);
 RcppExport SEXP _dgumbel_dpgumbel(SEXP qSEXP, SEXP locationSEXP, SEXP scaleSEXP, SEXP lower_tailSEXP, SEXP log_pSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< double >::type q(qSEXP);
+    Rcpp::traits::input_parameter< Rcpp::NumericVector >::type q(qSEXP);
     Rcpp::traits::input_parameter< double >::type location(locationSEXP);
     Rcpp::traits::input_parameter< double >::type scale(scaleSEXP);
     Rcpp::traits::input_parameter< bool >::type lower_tail(lower_tailSEXP);
@@ -65,12 +65,12 @@ BEGIN_RCPP
 END_RCPP
 }
 // qgumbel
-double qgumbel(double p, double location, double scale, bool lower_tail);
+Rcpp::NumericVector qgumbel(Rcpp::NumericVector p, double location, double scale, bool lower_tail);
 RcppExport SEXP _dgumbel_qgumbel(SEXP pSEXP, SEXP locationSEXP, SEXP scaleSEXP, SEXP lower_tailSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< double >::type p(pSEXP);
+    Rcpp::traits::input_parameter< Rcpp::NumericVector >::type p(pSEXP);
     Rcpp::traits::input_parameter< double >::type location(locationSEXP);
     Rcpp::traits::input_parameter< double >::type scale(scaleSEXP);
     Rcpp::traits::input_parameter< bool >::type lower_tail(lower_tailSEXP);
@@ -79,12 +79,12 @@ BEGIN_RCPP
 END_RCPP
 }
 // dqgumbel
-Rcpp::NumericVector dqgumbel(double p, double location, double scale, bool lower_tail);
+Rcpp::NumericMatrix dqgumbel(Rcpp::NumericVector p, double location, double scale, bool lower_tail);
 RcppExport SEXP _dgumbel_dqgumbel(SEXP pSEXP, SEXP locationSEXP, SEXP scaleSEXP, SEXP lower_tailSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< double >::type p(pSEXP);
+    Rcpp::traits::input_parameter< Rcpp::NumericVector >::type p(pSEXP);
     Rcpp::traits::input_parameter< double >::type location(locationSEXP);
     Rcpp::traits::input_parameter< double >::type scale(scaleSEXP);
     Rcpp::traits::input_parameter< bool >::type lower_tail(lower_tailSEXP);
