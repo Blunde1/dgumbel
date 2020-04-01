@@ -1,13 +1,15 @@
 Package: dgumbel
 Type: Package
-Title: Gumbel density, distribution, quantile and random generation functions with derivatives
+Title: The Gumbel Distribution Functions and Gradients
 Version: 1.0.0
 Date: 2020-03-31
 Author: Berent Ånund Strømnes Lunde
 Maintainer: Berent Ånund Strømnes Lunde <lundeberent@gmail.com>
-Description: dgumbel is a package for the Gumbel distribution. It imports the density function, 
-  the distribution function the quantile function and a random generating function. In addition, 
-  it supports gradient functions for the above mentioned functions (excluding random generating function).
+Description: With this tool, a user should be able to quickly model extreme
+    events via the Gumbel distribution. The package makes available the
+    density function, the distribution function the quantile function and a 
+    random generating function. In addition, it supports gradient functions 
+    for the above mentioned functions (excluding random generating function).
 License: GPL (>= 2) | file LICENSE
 Encoding: UTF-8
 Imports: Rcpp (>= 1.0.2), RcppEigen (>= 0.3.3.5.0)
