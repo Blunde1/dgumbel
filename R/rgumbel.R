@@ -6,11 +6,13 @@
 rgumbel <- function(n, location = 0, scale = 1){
     
     # Simulate from standard uniform
-    u <- runif(n, 0, 1)
+    # u <- runif(n, 0, 1)
     
     # Transform to Gumbel RV
-    x <- .qgumbel(u, location=location, scale=scale, lower_tail=T)
-    
+    #x <- .qgumbel(u, location=location, scale=scale, lower_tail=T)
+
+    x <- .rgumbel(n, location, scale)
+        
     return(x)
 
 }

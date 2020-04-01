@@ -92,6 +92,19 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// rgumbel
+Rcpp::NumericVector rgumbel(int n, double location, double scale);
+RcppExport SEXP _dgumbel_rgumbel(SEXP nSEXP, SEXP locationSEXP, SEXP scaleSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< int >::type n(nSEXP);
+    Rcpp::traits::input_parameter< double >::type location(locationSEXP);
+    Rcpp::traits::input_parameter< double >::type scale(scaleSEXP);
+    rcpp_result_gen = Rcpp::wrap(rgumbel(n, location, scale));
+    return rcpp_result_gen;
+END_RCPP
+}
 
 static const R_CallMethodDef CallEntries[] = {
     {"_dgumbel_dgumbel", (DL_FUNC) &_dgumbel_dgumbel, 4},
@@ -100,6 +113,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"_dgumbel_dpgumbel", (DL_FUNC) &_dgumbel_dpgumbel, 5},
     {"_dgumbel_qgumbel", (DL_FUNC) &_dgumbel_qgumbel, 4},
     {"_dgumbel_dqgumbel", (DL_FUNC) &_dgumbel_dqgumbel, 4},
+    {"_dgumbel_rgumbel", (DL_FUNC) &_dgumbel_rgumbel, 3},
     {NULL, NULL, 0}
 };
 

@@ -185,3 +185,19 @@ Rcpp::NumericMatrix dqgumbel(Rcpp::NumericVector p, double location, double scal
     return grad;
     
 }
+
+
+// RANDOM NUMBER GENERATION
+
+// [[Rcpp::export(.rgumbel)]]
+Rcpp::NumericVector rgumbel(int n, double location, double scale){
+    
+    // Simulate from standard uniform
+    Rcpp::NumericVector u = Rcpp::runif(n, 0, 1);
+    
+    // Transform to gumbel
+    Rcpp::NumericVector x = qgumbel(u, location, scale, true);
+    
+    return x;
+    
+}
