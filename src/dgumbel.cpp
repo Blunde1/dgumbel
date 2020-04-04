@@ -1,6 +1,6 @@
-// Main functions
-// Berent Lunde
-// 31.03.2020
+// Main functions for dgumbel
+// Copyright (C) 2020 Berent Lunde
+// License: GPL-3
 
 //#include "../inst/include/dgumbel.hpp"
 #include "dgumbel.hpp"

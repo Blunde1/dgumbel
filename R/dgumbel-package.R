@@ -1,3 +1,6 @@
+## Copyright (C) 2020 Berent Lunde
+## License: GPL-3
+
 #' \code{dgumbel} is a package for the Gumbel distribution. It imports the density function, the distribution function
 #' the quantile function and a random generating function. In addition, it supports gradient functions for the 
 #' above mentioned functions (excluding random generating function).

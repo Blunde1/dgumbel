@@ -1,3 +1,6 @@
+## Copyright (C) 2020 Berent Lunde
+## License: GPL-3
+
 # The Gumbel probability density function.
 # Its documentation is combined with gumbel-doc
 #

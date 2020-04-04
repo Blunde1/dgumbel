@@ -2,8 +2,9 @@ Package: dgumbel
 Type: Package
 Title: The Gumbel Distribution Functions and Gradients
 Version: 1.0.0
-Date: 2020-03-31
-Author: Berent Ånund Strømnes Lunde
+Date: 2020-04-04
+Authors@R: c(person("Berent Ånund Strømnes","Lunde",role=c("aut","cre"),email="lundeberent@gmail.com"),
+             person("Robin","Hogan",role="ctb", comment = "Author of included Adept library"))
 Maintainer: Berent Ånund Strømnes Lunde <lundeberent@gmail.com>
 Description: Gumbel distribution functions (De Haan L. (2007)
     <doi:10.1007/0-387-34471-3>) implemented with the techniques of automatic
@@ -19,6 +20,7 @@ Description: Gumbel distribution functions (De Haan L. (2007)
     gradients. It relies on 'RcppEigen' for easy access to 'Eigen' and
     bindings to R.
 License: GPL (>= 2) | file LICENSE
+Copyright: See the file COPYRIGHTS
 URL: https://github.com/blunde1/dgumbel
 BugReports: https://github.com/blunde1/dgumbel/issues
 Encoding: UTF-8

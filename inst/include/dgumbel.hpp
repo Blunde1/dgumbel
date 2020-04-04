@@ -1,7 +1,6 @@
 // Includes all header files for dgumbel
-// Berent Lunde
-// 31.03.2020
-
+// Copyright (C) 2020 Berent Lunde
+// License: GPL-3
 
 #ifndef __GUMBEL_HPP_INCLUDED__
 #define __GUMBEL_HPP_INCLUDED__

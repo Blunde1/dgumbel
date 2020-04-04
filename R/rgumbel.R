@@ -1,3 +1,6 @@
+## Copyright (C) 2020 Berent Lunde
+## License: GPL-3
+
 # The Gumbel random generating function.
 # Its documentation is combined with dgumbel.
 #
