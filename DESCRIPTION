@@ -19,8 +19,7 @@ Description: Gumbel distribution functions (De Haan L. (2007)
     library) for fast computations of both objective functions and exact
     gradients. It relies on 'RcppEigen' for easy access to 'Eigen' and
     bindings to R.
-License: GPL (>= 2) | file LICENSE
-Copyright: See the file COPYRIGHTS
+License: GPL (>= 2)
 URL: https://github.com/blunde1/dgumbel
 BugReports: https://github.com/blunde1/dgumbel/issues
 Encoding: UTF-8
