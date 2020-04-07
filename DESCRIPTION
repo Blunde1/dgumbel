@@ -2,7 +2,7 @@ Package: dgumbel
 Type: Package
 Title: The Gumbel Distribution Functions and Gradients
 Version: 1.0.0
-Date: 2020-04-04
+Date: 2020-04-07
 Authors@R: c(person("Berent Ånund Strømnes","Lunde",role=c("aut","cre","ctb"),email="lundeberent@gmail.com"),
              person("Robin","Hogan",role="ctb", comment = "Author of included Adept library"))
 Maintainer: Berent Ånund Strømnes Lunde <lundeberent@gmail.com>
