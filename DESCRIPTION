@@ -1,7 +1,7 @@
 Package: dgumbel
 Type: Package
 Title: The Gumbel Distribution Functions and Gradients
-Version: 1.0.0
+Version: 1.0.1
 Date: 2020-04-07
 Authors@R: c(person("Berent Ånund Strømnes","Lunde",role=c("aut","cre","cph"),email="lundeberent@gmail.com"),
              person("Robin","Hogan",role="ctb", comment = "Author of included Adept library"),
@@ -26,3 +26,4 @@ BugReports: https://github.com/blunde1/dgumbel/issues
 Encoding: UTF-8
 Imports: Rcpp (>= 1.0.2)
 LinkingTo: Rcpp, RcppEigen
+RoxygenNote: 6.1.1
